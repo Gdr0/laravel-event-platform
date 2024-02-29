@@ -36,6 +36,7 @@ return new class extends Migration
 
             $table -> dropForeign('events_tag_id_foreign');
             $table -> dropColumn("tag_id");
+
         });
 
         Schema::table('event_tag', function (Blueprint $table) {
@@ -45,6 +46,7 @@ return new class extends Migration
 
             $table -> dropForeign('event_tag_tag_id_foreign');
             $table -> dropColumn("tag_id");
+            
         });
     }
 };
