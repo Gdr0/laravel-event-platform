@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         $this -> call([
             EventTableSeeder :: class,
-            EventTagTableSeeder :: class,
             TagTableSeeder :: class,
             
             
