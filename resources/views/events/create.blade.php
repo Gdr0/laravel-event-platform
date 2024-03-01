@@ -20,18 +20,6 @@
             <br>
             <textarea name="description" id="description" cols="30" rows="10"></textarea>
             <br>
-            <label for="date">Date</label>
-            <br>
-            <input type="date" name="date" id="date">
-            <br>
-            <label for="time">Time</label>
-            <br>
-            <input type="time" name="time" id="time">
-            <br>
-            <label for="location">Location</label>
-            <br>
-            <input type="text" name="location" id="location">
-            <br>
             <label for="tags">Tags</label>
             <br>
             @foreach($tags as $tag)

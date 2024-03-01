@@ -20,8 +20,6 @@
         <br>
 
         <p>{{ $event -> description }}</p>
-        <p>{{ $event -> location }}</p>
-        <p>{{ $event -> date }}</p>
 
         <h3>Tags:</h3>
         <ul>
