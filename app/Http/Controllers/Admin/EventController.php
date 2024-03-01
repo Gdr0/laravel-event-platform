@@ -18,7 +18,9 @@ class EventController extends Controller
     {
         $events = Event :: all();
 
-        return view('events.index', compact('events'));
+        $user = Auth::id();
+
+        return view('events.index', compact('events', 'user'));
 
         }
 

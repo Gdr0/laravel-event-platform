@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@auth
     <div class="text-center">
         <h1>Events</h1>
         <a href="{{ route('events.create') }}">CREATE A NEW EVENT</a>
@@ -16,5 +16,5 @@
             @endforeach
         </ul>
     </div>
-
+@endauth
 @endsection
