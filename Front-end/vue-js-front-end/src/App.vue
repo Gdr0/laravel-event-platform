@@ -1,10 +1,10 @@
 <script setup>
-import EventComp from './components/EventComp.vue'
+import EventsComp from './components/EventsComp.vue'
 </script>
 
 <template>
   <div>
-    <EventComp />
+    <EventsComp />
   </div>
  
 </template>
