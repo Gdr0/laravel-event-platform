@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
 use App\Models\Tag;
 class EventController extends Controller
@@ -42,12 +43,16 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $data = $request -> all();
+
+        $user = Auth::user();
         
+        $id = Auth::id();
 
         $event = new Event;
 
         $event -> title = $data['title'];
         $event -> description = $data['description'];
+        $event ->user_id = $user->id;
         $event -> save();
         $event -> tags() -> attach($data['tags']);
 
