@@ -95,8 +95,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Event $event)
     {
+        // Verifica se l'utente autenticato è il proprietario dell'evento
+        if ($request->user()->id === $event->user_id) {
+
         $data = $request -> all();
 
         $event = Event :: find($id);
@@ -108,6 +111,11 @@ class EventController extends Controller
 
         $event -> tags() -> sync($data['tags']);
         return redirect() -> route('events.show', $event -> id);
+
+        } else {
+            abort(403, 'Non hai il permesso di aggiornare questo evento.');
+        }
+        
     }
 
     /**
@@ -118,9 +126,19 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
+        // Otteniamo l'evento corrispondente all'id fornito
+        $event = Event::find($id);
+        
+        if (auth()->id() === $event->user_id) {
+
         $event = Event :: find($id);
         $event -> tags() -> detach();
         $event -> delete();
         return redirect() -> route('events.index');
+
+        } else {
+            abort(403, 'Non hai il permesso di eliminare questo evento.');
+        }
+        
     }
 }

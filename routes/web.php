@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route :: get('/events/{id}/edit', [EventController :: class, 'edit'])-> name('events.edit');
     Route :: patch('/events/{id}', [EventController :: class, 'update'])-> name('events.update');
     Route :: get('/events/{id}', [EventController :: class, 'show'])-> name('events.show');
+    Route::resource('events', 'EventController');
 });
 
 require __DIR__.'/auth.php';

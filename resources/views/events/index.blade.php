@@ -6,7 +6,7 @@
         <h1>Events</h1>
         <a href="{{ route('events.create') }}">CREATE A NEW EVENT</a>
         <br><br>
-        <ul>
+        <ul style="list-style:none">
             @foreach($events as $event)
                 <li>
                     <a href="{{ route('events.show', $event -> id) }}">
