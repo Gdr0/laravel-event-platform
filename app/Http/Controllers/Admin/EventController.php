@@ -97,7 +97,7 @@ class EventController extends Controller
      */
     public function update(Request $request, $id, Event $event)
     {
-        // Verifica se l'utente autenticato è il proprietario dell'evento
+        
         if ($request->user()->id === $event->user_id) {
 
         $data = $request -> all();
@@ -126,7 +126,7 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        // Otteniamo l'evento corrispondente all'id fornito
+      
         $event = Event::find($id);
         
         if (auth()->id() === $event->user_id) {
