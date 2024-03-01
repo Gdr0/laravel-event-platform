@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this -> call([
-            EventTableSeeder :: class,
+            UserTableSeeder :: class,
             TagTableSeeder :: class,
-            
+            EventTableSeeder :: class,
             
             
             

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Event;
 use App\Models\Tag;
+use App\Models\User;
 
 class EventTableSeeder extends Seeder
 {
@@ -18,15 +19,18 @@ class EventTableSeeder extends Seeder
     public function run()
     {
         Event :: factory()
-        -> count(10) 
+        -> count(20)
         -> make()
-        -> each(function($event){
+        -> each(function ($event) {
 
-            $tag = Tag :: inRandomOrder() -> first();
+        $user = User :: inRandomOrder() -> first();
+        $event -> user() -> associate($user);
 
-            $event -> tags() -> attach($tag);
-            $event -> save();
+        $event -> save();
 
-        });
+        $tags = Tag :: inRandomOrder() -> take(3) -> get();
+        $event -> tags() -> attach($tags);
+
+    });
     }
 }
