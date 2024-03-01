@@ -14,9 +14,7 @@ use App\Http\Controllers\Admin\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/', [EventController::class, 'index']) ->name('events.index');
 Route::get('events/create', [EventController::class, 'create']) ->name('events.create');
@@ -25,7 +23,6 @@ Route :: delete('/events/{id}', [EventController :: class, 'destroy'])-> name('e
 Route :: get('/events/{id}/edit', [EventController :: class, 'edit'])-> name('events.edit');
 Route :: patch('/events/{id}', [EventController :: class, 'update'])-> name('events.update');
 Route :: get('/events/{id}', [EventController :: class, 'show'])-> name('events.show');
-
 
 
 // // //  //  //  //  
